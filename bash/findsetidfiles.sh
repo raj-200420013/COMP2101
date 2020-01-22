@@ -26,10 +26,11 @@ echo ""
 
 echo "Gid Files:"
 echo "==========="
-find / -type f -executable -perm -2000 -ls 2>/dev/null | sort -k 3
+find / -type f -executable -perm -2000 -ls 2>/dev/null | sort -k 4
 echo ""
 
-echo "Largest Files:"
+echo "10 Largest Files:"
 echo "==============="
-find / -type f -executable -ls 2>/dev/null | du -h | sort -n -r | cut -f1,2 |tail -n 10
+#It search for all files in the system and sort it in the reverse order. That's why i take head command.
+find / -type f -exec du -h {} + 2>/dev/null | sort -h -r| head -n 10
 echo ""
