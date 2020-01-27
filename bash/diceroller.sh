@@ -7,7 +7,7 @@ The dice shows $(( RANDOM % 6 + 1)) rolled
 "
 echo""
 # Task: Improve this script by making it roll as many dice as there are letters in your first name, instead of just one
-name=3
+name=raj
 for ((i=0;i<name;i++))
 do
   echo -n "You are rolling a pair of six-sided dice
