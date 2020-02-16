@@ -41,6 +41,8 @@ lanadd=$(ip a s $intfname |awk '/inet /{gsub(/\/.*/,"");print $2}')
 lanhostname=$(getent hosts $lanadd|awk '{print $2}')
 externalip=$(curl -s icanhazip.com)
 externalname=$(getent hosts $externalip|awk '{print $2}')
+rip=$(route -n | grep '^0.0.0.0' | awk '{print $2}')
+rname=$(getent hosts $rip | awk '{print $2}')
 #####################
 ## generate report
 #####################
@@ -50,4 +52,6 @@ LAN Address     : $lanadd
 LAN Hostname    : $lanhostname
 External IP     : $externalip
 External Name   : $externalname
+Router IP       : $rip
+Router Name     : $rname
 EOF
